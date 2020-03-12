@@ -1,0 +1,35 @@
+{
+  "name": "app-tokyo",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node server/index.js",
+    "client": "cd client && npm start",
+    "server": "nodemon",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "open": "open https://app-tokyo.herokuapp.com/"
+  },
+  "proxy": "http://localhost:8080/",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "http": "0.0.0",
+    "mongodb": "^3.5.4",
+    "morgan": "^1.9.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "concurrently": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "nodemon": "^2.0.2"
+  }
+}

@@ -1,0 +1,56 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+.PlayerCard {
+  width: 100%;
+  .ant-card {
+    width: 100%;
+    &.selected {
+      border: 2px solid green;
+    }
+
+    .ant-card-meta-title {
+      text-align: center;
+    }
+    .player-description {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .ant-card-cover img {
+    width: 160px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .PlayerCard {
+    width: auto;
+    .ant-card {
+      width: 200px;
+
+      .player-title {
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+      }
+      .player-description {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .ant-card-cover img {
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 0;
+      border: 0;
+      border-radius: 0;
+    }
+  }
+}
+
+

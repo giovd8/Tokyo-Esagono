@@ -1,0 +1,55 @@
+.PlayerList {
+  h2 {
+    text-align: center;
+    font-family: 'Permanent Marker';
+    padding: 16px 0;
+    margin: 0;
+  }
+  .buttons {
+    justify-content: center;
+    font-family: 'Abel';
+    button {
+      font-family: 'Abel';
+      font-weight: bold;
+      font-size: 18px;
+      margin: 5px 0;
+    }
+    .btn-join {
+      color: #1890ff;
+      background: #e6f7ff;
+      border-color: #91d5ff;
+    }
+  }
+}
+
+.game-drawer {
+  font-family: 'Abel';
+  .ant-drawer-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .drawer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    padding: 8px;
+    margin-bottom: 16px;
+    .drawer-item-content {
+      display: block;
+      font-size: 16px;
+    }
+    a {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .anticon {
+      color: #f5222d;
+      font-size: 18px;
+      padding-left: 8px;
+      cursor: pointer;
+    }
+  }
+}

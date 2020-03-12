@@ -1,0 +1,40 @@
+.Navbar {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  background-color: #282c34;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 40px;
+      margin: 0 16px;
+    }
+    h2 {
+      margin: 0;
+      padding: 0;
+      font-family: 'Permanent Marker';
+      font-size: 20px;
+      color: white;
+    }
+  }
+  .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px;
+    .avatar {
+      // color: #f56a00;
+      // background-color: #fde3cf;
+      cursor: pointer;
+    }
+    span {
+      margin-right: 10px;
+      font-weight: bold;
+      color: white;
+    }
+  }
+}

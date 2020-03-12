@@ -1,0 +1,38 @@
+.Login {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white;
+}
+
+.header {
+  margin-top: 100px;
+  h2 {
+    font-family: 'Permanent Marker';
+    font-size: 48px;
+    color: white;
+  }
+  .logo {
+    width: 150px;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  // .logo {
+  //   animation: logo-spin infinite 15s linear;
+  // }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

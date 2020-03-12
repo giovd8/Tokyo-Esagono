@@ -1,0 +1,28 @@
+.App {
+  position: relative;
+  background: #f0f0f0;
+  height: 100vh;
+  overflow: auto;
+  .stats {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .btn-action {
+    font-family: 'Abel' !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+  }
+
+  .btn-success {
+    color: #f6ffed !important;
+    background: #52c41a !important;
+    border-color: #4cb518 !important;
+  }
+
+  .btn-error {
+    color: #fff1f0 !important;
+    background: #f5222d !important;
+    border-color: #df1f29 !important;
+  }
+}

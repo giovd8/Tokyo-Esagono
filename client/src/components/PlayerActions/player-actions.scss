@@ -1,0 +1,62 @@
+.PlayerActions {
+  background: #FFF;
+  border: 1px solid #e8e8e8;
+  .ant-page-header-content {
+    padding-top: 0 !important;
+  }
+  .ant-divider {
+    margin-top: 0 !important;
+  }
+  .user-action {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Abel';
+    color: #222;
+    padding: 16px 0;
+  }
+  .reply-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 16px;
+    .btn-action {
+      margin: 4px 8px;
+      min-width: 120px;
+    }
+  }
+  .roll-dice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    .dice {
+      color: #000;
+      font-size: 6rem;
+      line-height: 1;
+      text-align: center;
+    }
+    .btn-roll {
+      font-family: 'Abel';
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 16px;
+      margin-bottom: 32px;
+    }
+    .call-points {
+      display: flex;
+      margin: 20px 0;
+      input {
+        width: 120px;
+      }
+      .ant-btn {
+        margin-left: 4px;
+        font-family: 'Abel';
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+  }
+}
