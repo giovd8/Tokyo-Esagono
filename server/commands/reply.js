@@ -77,6 +77,9 @@ module.exports = async (command, db, socket) => {
     } else if (game.callPoints !== game.dicePoints) {
       ({ playerIdx, lives, alSalto } = loseLife(1, game.match[0], game.players));
       socket.emit('notify', { type: 'info', message: `${game.match[0]} perde 1 vita 💔` });
+    } else if (game.callPoints === game.dicePoints) {
+      ({ playerIdx, lives, alSalto } = loseLife(1, game.match[1], game.players));
+      socket.emit('notify', { type: 'info', message: `${game.match[1]} perde 1 vita 💔` });
     }
 
     nextGame = {

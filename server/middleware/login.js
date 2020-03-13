@@ -13,7 +13,7 @@ module.exports = (db) => async (req, res) => {
     ({ ops: [player] } = await Players.insertOne({
       name,
       avatar,
-      lifes: 3,
+      lives: 3,
       alSalto: 0,
       online: true,
     }));
