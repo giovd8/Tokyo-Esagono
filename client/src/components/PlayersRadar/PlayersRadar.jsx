@@ -28,19 +28,19 @@ const renderLabel = game => (label) => {
 }
 
 const tooltipFormat = (value, key, item) => {
-  if (key === 'shots') {
+  if (key === 'alSalto') {
     return item.drinks;
   }
   return value;
 }
 
 const PlayersRadar = ({ data, game }) => {
-  const players = data ? data.map(d => ({ ...d, drinks: d.shots, shots: d.shots % 3 })) : [];
+  const players = data ? data.map(d => ({ ...d, drinks: d.drinks, alSalto: d.alSalto % 3 })) : [];
   return (
     <div className="radar">
       <ResponsiveRadar
         data={players}
-        keys={[ 'lives', 'shots' ]}
+        keys={[ 'Lives', 'Al salto' ]}
         indexBy="name"
         maxValue={3}
         margin={{ top: 70, right: 80, bottom: 40, left: 80 }}

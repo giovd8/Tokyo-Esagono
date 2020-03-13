@@ -20,7 +20,7 @@ const PlayerCard = (props) => {
     return (
       <div className="player-description">
         <span>Vite: {player.lives}</span>
-        <span>Al Salto: {player.shots}</span>
+        <span>Al Salto: {player.alSalto}</span>
       </div>
     )
   }

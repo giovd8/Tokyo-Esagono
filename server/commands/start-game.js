@@ -6,7 +6,7 @@ module.exports = async (players, db, socket) => {
     players: players.map(player => ({
       ...player,
       lifes: 3,
-      shots: 0,
+      alSalto: 0,
     })),
     match: players.map(player => player.name).slice(0, 2),
     turn: 0,

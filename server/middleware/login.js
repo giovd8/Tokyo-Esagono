@@ -14,7 +14,7 @@ module.exports = (db) => async (req, res) => {
       name,
       avatar,
       lifes: 3,
-      shots: 0,
+      alSalto: 0,
       online: true,
     }));
   }
