@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb+srv://tokyoEsagono:alegaydh@tokyoesagono-wz2de.mongodb.net/Tokyo?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://tokyoEsagono:alegaydh@tokyoesagono-wz2de.mongodb.net/tokyo?retryWrites=true&w=majority';
 const client = new MongoClient(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 
 module.exports = () => new Promise((resolve, reject) => {

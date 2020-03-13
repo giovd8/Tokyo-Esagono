@@ -9,7 +9,7 @@ const Navabar = (props) => {
       <div className="logo">
         <img src="/dice.png" alt="dice"/>
         <Link to="/">
-          <h2>TOKYO</h2>
+          <h2>Tokyo Esagono</h2>
         </Link>
       </div>
       <div className="profile">

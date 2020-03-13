@@ -1,5 +1,4 @@
 const { ObjectID } = require('mongodb');
-const { INITIAL_LIVES } = require('../constants');
 
 const getNextMatch = (players, match) => {
   const idx = players.findIndex(player => player.name === match[1]);
@@ -11,7 +10,7 @@ const getNextMatch = (players, match) => {
 const loseLife = (numLife, match, players) => {
   const playerIdx = players.findIndex(player => player.name === match);
   const player = players[playerIdx];
-  const lives = player.lives - numLife > 0 ? player.lives - numLife : INITIAL_LIVES;
+  const lives = player.lives - numLife > 0 ? player.lives - numLife : player.lives - numLife + 3;
   const shots = player.lives - numLife > 0 ? player.shots : player.shots + 1;
   return { playerIdx, lives, shots };
 };
@@ -23,10 +22,10 @@ module.exports = async (command, db, socket) => {
   const Game = db.collection('game');
   const game = await Game.findOne({ _id: new ObjectID(gameId) });
   if (!game) {
-    return socket.emit('notify', { type: 'error', message: 'game not found' });
+    return socket.emit('notify', { type: 'error', message: 'Nessun gioco trovato!' });
   }
   if (game.match[1] !== user) {
-    return socket.emit('notify', { type: 'error', message: 'you are not allow to do this action!' });
+    return socket.emit('notify', { type: 'error', message: 'Cazzo fai? Non tocca a te!' });
   }
 
   let nextGame = {
@@ -72,12 +71,12 @@ module.exports = async (command, db, socket) => {
     if (game.callPoints === 21 && game.callPoints === game.dicePoints) {
       ({ playerIdx, lives, shots } = loseLife(2, game.match[1], game.players));
       socket.emit('notify', { type: 'info', message: `${game.match[1]} perde 2 vite 💔💔` });
-    } else if (game.callPoints === 21 || game.callPoints > game.dicePoints) {
+    } else if (game.callPoints === 21 && game.callPoints !== game.dicePoints) {
+      ({ playerIdx, lives, shots } = loseLife(2, game.match[0], game.players));
+      socket.emit('notify', { type: 'info', message: `${game.match[0]} perde 2 vite 💔💔` });
+    } else if (game.callPoints !== game.dicePoints) {
       ({ playerIdx, lives, shots } = loseLife(1, game.match[0], game.players));
-      socket.emit('notify', { type: 'info', message: `${game.match[0]} perde una vita 💔` });
-    } else {
-      ({ playerIdx, lives, shots } = loseLife(1, game.match[1], game.players));
-      socket.emit('notify', { type: 'info', message: `${game.match[1]} perde una vita 💔` });
+      socket.emit('notify', { type: 'info', message: `${game.match[0]} perde 1 vita 💔` });
     }
 
     nextGame = {

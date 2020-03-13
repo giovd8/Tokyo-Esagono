@@ -6,13 +6,13 @@ module.exports = async (command, db, socket) => {
   const Game = db.collection('game');
   const game = await Game.findOne({ _id: new ObjectID(gameId) });
   if (!game) {
-    return socket.emit('notify', { type: 'error', message: 'game not found' });
+    return socket.emit('notify', { type: 'error', message: 'Gioco non trovato!' });
   }
   if (game.match[0] !== user) {
-    return socket.emit('notify', { type: 'error', message: 'you are not allow to do this action!' });
+    return socket.emit('notify', { type: 'error', message: 'Cazzo fai? Non tocca te!' });
   }
   if (callPoints < game.lastPoints && callPoints !== 21) {
-    return socket.emit('notify', { type: 'error', message: `points can not be less than ${game.lastPoints}` });
+    return socket.emit('notify', { type: 'error', message: `Devi chiamare un numero maggiore di ${game.lastPoints}!` });
   }
 
   const nextGame = await Game.findOneAndUpdate(

@@ -47,7 +47,7 @@ export default class PlayerActions extends Component {
     const { rolled } = this.state;
     const callPoints = Number(rolled.points);
     if (callPoints <= game.lastPoints && callPoints !== 21) {
-      this.setState({ error: `Non puoi chiamare un numero inferiore a ${game.lastPoints}` })
+      this.setState({ error: `Devi chiamare un numero superiore di ${game.lastPoints}!` })
     } else {
       console.log('callPoints: ', callPoints);
       sendCommand({
