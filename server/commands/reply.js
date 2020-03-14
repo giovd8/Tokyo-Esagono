@@ -12,6 +12,10 @@ const loseLife = (numLife, match, players) => {
   const player = players[playerIdx];
   const lives = player.lives - numLife > 0 ? player.lives - numLife : player.lives - numLife + 3;
   const alSalto = player.lives - numLife > 0 ? player.alSalto : player.alSalto + 1;
+  // let { alSalto } = player;
+  // if (player.lives - numLife <= 0) {
+  //   alSalto += 1;
+  // }
   return { playerIdx, lives, alSalto };
 };
 
