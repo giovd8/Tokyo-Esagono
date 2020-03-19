@@ -46,9 +46,18 @@ export default class PlayerActions extends Component {
     const { game, sendCommand } = this.props;
     const { rolled } = this.state;
     const callPoints = Number(rolled.points);
-    if (callPoints <= game.lastPoints && callPoints !== 21) {
-      this.setState({ error: `Devi chiamare un numero superiore di ${game.lastPoints}!` })
-    } else {
+    const possibilityNumbers = [31, 32, 41, 42, 43, 51, 52, 53, 54, 61, 62, 63, 64, 65, 100, 200, 300, 400, 500, 600, 21];
+    let find;
+    possibilityNumbers.forEach( number => {
+        if (callPoints === number ){
+          find=true;
+        }
+    });
+    if (callPoints <= game.lastPoints && callPoints !== 21 && find) {
+      this.setState({ error: `Devi chiamare un numero superiore di ${game.lastPoints}, stupido!` })
+    } else if (!find){
+      this.setState({ error: "Inserisci un numero valido, sei già ubriaco?" })
+    }else {
       console.log('callPoints: ', callPoints);
       sendCommand({
         type: 'CALL_POINTS',
