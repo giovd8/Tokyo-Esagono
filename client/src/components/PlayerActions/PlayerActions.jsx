@@ -78,7 +78,7 @@ export default class PlayerActions extends Component {
               <Input
                 size="large"
                 type="number"
-                defaultValue={rolled.points}
+                //defaultValue='{rolled.points}'
                 onChange={(e) => this.setState({ rolled: { ...rolled, points: e.target.value }, error: null })}
                 onPressEnter={() => this.callPoints()}
               />
