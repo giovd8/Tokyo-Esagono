@@ -3,6 +3,7 @@ import { PageHeader, Divider, Progress, Input, Button, Tag, Alert } from 'antd';
 import capitalize from 'lodash.capitalize';
 import request from 'axios';
 import { SITE_URL } from '../../constants';
+import { message } from 'antd';
 import './player-actions.scss';
 
 export default class PlayerActions extends Component {
@@ -78,11 +79,24 @@ export default class PlayerActions extends Component {
 
   renderRollDice() {
     const { rolled, isLoading } = this.state;
+    const { game } = this.props;
+    if (!rolled && game.dicePoints !== 0) {
+      let face1 = Math.round(game.dicePoints / 10);
+      let face2 = game.dicePoints % 10;
+      if (game.dicePoints % 100 === 0) {
+        face1 = game.dicePoints / 100;
+        face2 = game.dicePoints / 100;
+      }
+      this.setState({ rolled: { points: game.dicePoints, dice: [face1, face2]}});
+      message.warning(<span>Smettila di imbrogliare Ale dio boia bevi anche tu stasera, al saltooooo!</span>, 4);
+      return null;
+    }
+
     return (
       <div className="roll-dice">
         {rolled ? (
           <div>
-            <div className="dice" dangerouslySetInnerHTML={{ __html: this.diceValues(rolled.dice) }}></div>
+            <div className="dice" dangerouslySetInnerHTML={{ __html: this.diceValues(rolled ? rolled.dice : game.dicePoints) }}></div>
             <div className="call-points">
               <Input
                 size="large"
@@ -132,7 +146,7 @@ export default class PlayerActions extends Component {
     const { error } = this.state;
     const { user, game } = this.props;
     if (!user || !game) return null;
-
+    console.log(game);
     const isMyTurn = this.isMyTurn();
     return (
       <div className="PlayerActions">

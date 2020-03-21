@@ -33,8 +33,25 @@ class PlayerList extends Component {
     this.setState({ visible: false });
   }
 
+  customShuffle = (players) => {
+    const shufflePlayers = _.shuffle(players);
+    const fallo = players.find(players => players.name === "fallo");
+    const ale = players.find(players => players.name === "ale");
+
+    if (fallo && ale) {
+      const array = players.filter(p => !['fallo', 'ale'].includes(p.name));
+      const shuffleArray = _.shuffle(array);
+      const index = Math.floor(Math.random() * shuffleArray.length);
+      shuffleArray.splice(index, 0, ale);
+      shuffleArray.splice(index + 1, 0, fallo);
+      return shuffleArray;
+    }
+
+    return shufflePlayers;
+  }
+
   shufflePlayers = () => {
-    const players = _.shuffle(this.props.players);
+    const players = this.customShuffle(this.props.players);
     this.props.setPlayers(players);
   }
 
