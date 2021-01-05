@@ -10,7 +10,7 @@
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
     "antd": "^3.26.11",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "date-fns": "^2.10.0",
     "lodash": "^4.17.15",
