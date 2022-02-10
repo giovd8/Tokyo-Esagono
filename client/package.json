@@ -15,7 +15,7 @@
     "date-fns": "^2.10.0",
     "lodash": "^4.17.15",
     "lodash.capitalize": "^4.2.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
